@@ -9,21 +9,21 @@ const ProfilePage = ({ data, onBack }) => (
       <span>←</span> BACK TO DIRECTORY
     </button>
 
-    <div className="flex flex-col lg:flex-row gap-12 items-center">
-      <div className="w-full lg:w-2/5 flex justify-center">
-        <div className="p-2 rounded-[2.5rem] border-4 border-[#5C4033] shadow-[10px_10px_0px_#A67B5B] bg-white">
-          <div className="rounded-[2rem] overflow-hidden w-full aspect-square max-w-[400px]">
-            <img 
-              src={data.foto} 
-              alt={data.nama} 
-              className="w-full h-full object-cover" 
-            />
+    <div className="space-y-12">
+      <div className="flex flex-col md:flex-row gap-12 items-center bg-white border-4 border-[#5C4033] p-10 rounded-[2.5rem] shadow-[10px_10px_0px_#A67B5B]">
+        <div className="w-full md:w-1/3 flex justify-center md:justify-start">
+          <div className="p-2 rounded-[2rem] border-4 border-[#A67B5B] bg-[#FAF7F0] shadow-inner">
+            <div className="rounded-[1.5rem] overflow-hidden w-full aspect-square max-w-[300px] bg-slate-50">
+              <img 
+                src={data.foto} 
+                alt={data.nama} 
+                className="w-full h-full object-cover" 
+              />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="w-full lg:w-3/5 space-y-8">
-        <div className="space-y-4 text-center lg:text-left">
+        <div className="w-full md:w-2/3 space-y-6 text-center md:text-left">
           <span className="inline-block px-4 py-1.5 border-2 border-[#5C4033] rounded-xl text-[10px] font-black uppercase tracking-widest bg-[#EAD8C0] text-[#5C4033] shadow-[3px_3px_0px_#5C4033]">
             Student Member
           </span>
@@ -31,28 +31,29 @@ const ProfilePage = ({ data, onBack }) => (
             {data.nama}
           </h1>
           <p className="text-xl font-bold text-[#A67B5B] tracking-tighter border-b-4 border-[#EAD8C0] inline-block pb-1">{data.nim}</p>
+          
+          <div className="grid grid-cols-2 gap-4 pt-4">
+            {[
+              { label: 'Class', value: data.kelas },
+              { label: 'Program', value: data.jurusan },
+              { label: 'Location', value: data.domisili },
+              { label: 'Faculty', value: "Vokasi UB" }
+            ].map((item, index) => (
+              <div key={index} className="bg-[#F5EFE6] border-2 border-[#A67B5B] p-4 rounded-xl shadow-[4px_4px_0px_#5C4033]">
+                <p className="text-[9px] uppercase font-black tracking-widest text-[#A67B5B] mb-1">{item.label}</p>
+                <p className="text-xs font-bold text-[#5C4033] uppercase leading-tight">{item.value}</p>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          {[
-            { label: 'Class', value: data.kelas },
-            { label: 'Program', value: data.jurusan },
-            { label: 'Location', value: data.domisili },
-            { label: 'Faculty', value: "Vokasi UB" }
-          ].map((item, index) => (
-            <div key={index} className="bg-white border-2 border-[#5C4033] p-5 rounded-2xl shadow-[5px_5px_0px_#5C4033]">
-              <p className="text-[9px] uppercase font-black tracking-widest text-[#A67B5B] mb-1">{item.label}</p>
-              <p className="text-sm font-bold text-[#5C4033] uppercase leading-tight">{item.value}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="bg-[#FAF7F0] border-4 border-[#5C4033] p-8 rounded-[2rem] shadow-[8px_8px_0px_#5C4033] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-2 h-full bg-[#A67B5B]"></div>
-          <p className="text-[#5C4033] leading-relaxed font-semibold italic text-base relative z-10">
-            "{data.tentang}"
-          </p>
-        </div>
+      <div className="bg-[#FAF7F0] border-4 border-[#5C4033] p-10 rounded-[2.5rem] shadow-[8px_8px_0px_#5C4033] relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-3 h-full bg-[#A67B5B]"></div>
+        <h3 className="text-xl font-black text-[#5C4033] uppercase tracking-wider font-['Outfit'] mb-6 border-b-2 border-[#EAD8C0] pb-2 inline-block">Personal Biography</h3>
+        <p className="text-[#432C23] leading-relaxed font-semibold italic text-base relative z-10">
+          "{data.tentang}"
+        </p>
       </div>
     </div>
   </div>
@@ -99,6 +100,8 @@ export default function App() {
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+          @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+          .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
         `}
       </style>
 
@@ -120,11 +123,12 @@ export default function App() {
           </header>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {dataAnggota.map((item) => (
+            {dataAnggota.map((item, index) => (
               <div 
                 key={item.id} 
                 onClick={() => setCurrentPage(item.id)} 
-                className="group cursor-pointer relative"
+                className={`group cursor-pointer relative animate-fade-in-up`}
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="bg-white border-4 border-[#5C4033] p-6 rounded-[2.5rem] shadow-[10px_10px_0px_#5C4033] group-hover:shadow-[18px_18px_0px_#A67B5B] group-hover:-translate-y-3 group-hover:-translate-x-1 transition-all duration-500 ease-out">
                   <div className="aspect-square rounded-3xl overflow-hidden mb-6 border-2 border-[#F5EFE6] shadow-inner bg-slate-50">
