@@ -70,8 +70,8 @@ export default function App() {
       kelas: "T2-A • Group 5",
       jurusan: "Teknologi Informasi",
       domisili: "Malang",
-      foto: "/images/anjani.jpeg",
-      tentang: "isi biografi kamu di sini minimal 100 kata yaa"
+      foto: "/images/anjani.jpg",
+      tentang: "Seorang mahasiswa jurusan Teknologi Informasi dari Fakultas Vokasi Universitas Brawijaya asal Malang yang memiliki ketertarikan mendalam pada pengembangan antarmuka pengguna serta front-end development untuk aplikasi interaktif, terutama pada games, karena saya sendiri telah tertarik dan mengenal games sedari kecil. Saya adalah pribadi yang senang mempelajari hal baru dan lingkungan baru, serta memiliki rasa ingin tahu yang tinggi terhadap perkembangan teknologi modern dan industri kreatif digital. Kedepannya, saya berharap dapat belajar menjadi seorang Front-end Developer di industri yang mampu menciptakan antarmuka yang intuitif, imersif, dan menarik, serta turut berkontribusi dalam menghadirkan pengalaman bermain yang bermakna bagi masyarakat luas di masa depan."
     },
     {
       id: "tzurayya-aisyah",
