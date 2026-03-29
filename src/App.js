@@ -79,9 +79,9 @@ export default function App() {
       nim: "253140700111037",
       kelas: "T2-A • Group 5",
       jurusan: "Teknologi Informasi",
-      domisili: "Depok",
+      domisili: "Bekasi",
       foto: "/images/tzurayya.jpeg", 
-      tentang: "isi biografi kamu di sini minimal 100 kata yaa"
+      tentang: "Halo! Saya merupakan mahasiswi program studi Teknologi Informasi di Universitas Brawijaya yang memiliki minat besar dalam bidang pengembangan aplikasi web serta Cyber Security. Selama perkuliahan, saya telah mempelajari dasar-dasar pemrograman seperti ReactJS dan Tailwind CSS, yang kemudian saya terapkan dalam pembuatan mini project ini.Saya adalah pribadi yang mampu bekerja sama dalam tim, cepat beradaptasi, dan memiliki semangat belajar yang tinggi terhadap perkembangan teknologi. Melalui project biodata kelompok ini, saya mendapatkan pengalaman berharga dalam berkolaborasi menggunakan GitHub serta memahami alur pengembangan proyek secara terstruktur. Ke depannya, saya bercita-cita menjadi seorang Front-end Developer yang dapat mengembangkan tampilan aplikasi yang menarik, interaktif, dan memberikan manfaat bagi banyak orang."
     },
     {
       id: "tabina-naila",
